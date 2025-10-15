@@ -22,16 +22,12 @@ class PomodoroTimer {
         this.progressElement = document.getElementById('progress');
         this.startPauseBtn = document.getElementById('startPauseBtn');
         this.resetBtn = document.getElementById('resetBtn');
-        this.workTimeInput = document.getElementById('workTime');
-        this.breakTimeInput = document.getElementById('breakTime');
     }
     
     bindEvents() {
         this.startPauseBtn.addEventListener('click', () => this.toggleStartPause());
         this.resetBtn.addEventListener('click', () => this.reset());
         
-        this.workTimeInput.addEventListener('change', () => this.updateWorkTime());
-        this.breakTimeInput.addEventListener('change', () => this.updateBreakTime());
         
         // Prevent timer from stopping when page loses focus
         document.addEventListener('visibilitychange', () => {
@@ -152,29 +148,6 @@ class PomodoroTimer {
         }
     }
     
-    updateWorkTime() {
-        const newTime = parseInt(this.workTimeInput.value);
-        if (newTime >= 1 && newTime <= 60) {
-            this.workTime = newTime;
-            if (this.currentSession === 'work' && !this.isRunning) {
-                this.timeLeft = this.workTime * 60;
-                this.totalTime = this.workTime * 60;
-                this.updateDisplay();
-            }
-        }
-    }
-    
-    updateBreakTime() {
-        const newTime = parseInt(this.breakTimeInput.value);
-        if (newTime >= 1 && newTime <= 30) {
-            this.breakTime = newTime;
-            if (this.currentSession === 'break' && !this.isRunning) {
-                this.timeLeft = this.breakTime * 60;
-                this.totalTime = this.breakTime * 60;
-                this.updateDisplay();
-            }
-        }
-    }
     
     showNotification() {
         const message = this.currentSession === 'work' 
