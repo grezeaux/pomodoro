@@ -5,7 +5,7 @@
 }
 
 body {
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-family: 'Work Sans', sans-serif;
     background: linear-gradient(to bottom, #87CEEB 0%, #98D8E8 30%, #B0E0E6 70%, #E0F6FF 100%);
     min-height: 100vh;
     display: flex;
@@ -74,6 +74,7 @@ header h1 {
 
 .timer-display {
     margin-bottom: 2rem;
+    text-align: center;
 }
 
 .time {
@@ -95,9 +96,43 @@ header h1 {
 .controls {
     margin-bottom: 2rem;
     display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.timer-selector {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    margin-bottom: 1rem;
+}
+
+.timer-selector label {
+    font-weight: 500;
+    color: #2c3e50;
+}
+
+.timer-selector select {
+    padding: 0.5rem 1rem;
+    border: 2px solid #bdc3c7;
+    border-radius: 8px;
+    background: white;
+    font-size: 1rem;
+    color: #2c3e50;
+    transition: border-color 0.3s ease;
+}
+
+.timer-selector select:focus {
+    outline: none;
+    border-color: #3498db;
+}
+
+.buttons {
+    display: flex;
     gap: 1rem;
     justify-content: center;
-    flex-wrap: wrap;
 }
 
 .btn {
@@ -151,12 +186,7 @@ header h1 {
 
 .session-info {
     margin-bottom: 2rem;
-}
-
-.session-count {
-    font-size: 1.1rem;
-    color: #7f8c8d;
-    margin-bottom: 1rem;
+    text-align: center;
 }
 
 .progress-bar {
@@ -165,6 +195,12 @@ header h1 {
     background: #ecf0f1;
     border-radius: 4px;
     overflow: hidden;
+    cursor: pointer;
+    transition: transform 0.2s ease;
+}
+
+.progress-bar:hover {
+    transform: scaleY(1.2);
 }
 
 .progress {

@@ -3,32 +3,41 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Pomodoro Timer</title>
+    <title>ChronoChris</title>
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🕐</text></svg>">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Work+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
     <div class="container">
         <header>
-            <h1>🍅 Pomodoro Timer</h1>
+            <h1>ChronoChris</h1>
         </header>
         
         <main>
             <div class="timer-display">
                 <div class="time" id="time">25:00</div>
-                <div class="session-type" id="sessionType">Work Session</div>
             </div>
             
             <div class="controls">
-                <button id="startPauseBtn" class="btn btn-start">Start</button>
-                <button id="resetBtn" class="btn btn-secondary">Reset</button>
+                <div class="timer-selector">
+                    <label for="timerDuration">Duration:</label>
+                    <select id="timerDuration">
+                        <option value="5">5 minutes</option>
+                        <option value="15">15 minutes</option>
+                        <option value="25" selected>25 minutes</option>
+                    </select>
+                </div>
+                <div class="buttons">
+                    <button id="startPauseBtn" class="btn btn-start">Start</button>
+                    <button id="resetBtn" class="btn btn-secondary">Reset</button>
+                </div>
             </div>
             
             <div class="session-info">
-                <div class="session-count">
-                    <span>Session: </span>
-                    <span id="sessionCount">1</span>
-                </div>
-                <div class="progress-bar">
+                <div class="progress-bar" id="progressBar">
                     <div class="progress" id="progress"></div>
                 </div>
             </div>
